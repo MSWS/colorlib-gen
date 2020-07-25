@@ -46,12 +46,13 @@ def group_till_unique(in_group : list, i : int = 0) -> dict:
     Recursively splits a list into a tree,
     where each node is a char in the leafs.
     """
-    if (len(in_group) <= 1):
-        return in_group
 
     groups = {}
     for (key, group) in group_by_char_at(in_group, i).items():
-        groups[key] = group_till_unique(group, i + 1)
+        if isinstance(group, list):
+            groups[key] = group_till_unique(group, i + 1)
+        else:
+            groups[key] = group
 
     return groups
 
@@ -75,17 +76,19 @@ def group_by_char_at(colors : list, i : int = 0) -> dict:
     for color in colors:
         if len(color) == i:
             # index greater than length of string so use null terminator
-            groups[0] = [color]
+            groups[0] = color
         elif color[i] in groups:
-            groups[color[i]].append(color)
+            if isinstance(groups[color[i]], list):
+                groups[color[i]].append(color)
+            else:
+                groups[color[i]] = [groups[color[i]], color]
         else:
-            groups[color[i]] = [color]
+            groups[color[i]] = color
 
     return groups
 
 def skip_redundant_decisions(group : dict, depth : int = 0):
     """Optimisation step which skips redundant decisions."""
-
     # FROM:
     # 't':
     # {
@@ -187,7 +190,7 @@ def create_decisions(group : CharGroup, indent : int = 0) -> str:
         if isinstance(value, CharGroup):
             body = create_decisions(value, indent + 1)
         else:
-            body = create_return(color_enum_names[value[0]])
+            body = create_return(color_enum_names[value])
         
         if i == 0:
             decisions = create_if(indent, group.depth, key, body)
