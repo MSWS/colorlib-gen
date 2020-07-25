@@ -1,0 +1,54 @@
+header:
+  - "//\n"
+  - "// This file was generated with color_gen.py and should not be used outside of colorlib.inc\n"
+  - "//\n"
+  - "// Do not edit! Regenerate this file with color_gen.py\n"
+  - "//\n"
+  - "\n"
+  - "#if defined _colorlib_map_included\n"
+  - "    #endinput\n"
+  - "#endif\n"
+  - "#define _colorlib_map_included\n"
+  - "\n"
+
+footer: "\n"
+
+color_function:
+  - "CL_Colors _CL_ColorMap(char color[16])\n"
+  - "{{\n"
+  - "{}"
+  - "\n"
+  - "{}"
+  - "}}\n"
+
+enum:
+  - "enum CL_Colors\n"
+  - "{{\n"
+  - "{}"
+  - "}};\n"
+
+enum_entry: "{} = {},\n"
+
+if:
+  - "if (color[{}] == {})\n"
+  - "{{\n"
+  - "{}"
+  - "}}\n"
+
+elif:
+  - "else if (color[{}] == {})\n"
+  - "{{\n"
+  - "{}"
+  - "}}\n"
+
+else:
+  - "else\n"
+  - "{{\n"
+  - "{}"
+  - "}}\n"
+
+char: "'{}'"
+
+cast: "view_as<CL_Colors>({})"
+
+return: "return {};\n"
