@@ -1,0 +1,40 @@
+header:
+  - "\n"
+  - "from enum import Enum\n"
+  - "\n"
+
+footer: ""
+
+color_function:
+  - "def color_map(color : str) -> str:\n"
+  - "{}"
+  - "\n"
+  - "{}"
+
+color_name: "{}"
+
+enum:
+  - "class Color(Enum):\n"
+  - "{}"
+
+enum_entry: "{} = '{}'\n"
+
+enum_usage: "Color.{}"
+
+if:
+  - "if color[{}] == {}:\n"
+  - "{}"
+
+elif:
+  - "elif color[{}] == {}:\n"
+  - "{}"
+
+else:
+  - "else:\n"
+  - "{}"
+
+char: "'{}'"
+
+cast: "'{}'"
+
+return: "return {}\n"

@@ -21,6 +21,8 @@ color_function:
   - "{}"
   - "}}\n"
 
+color_name: "CL_Color_{}"
+
 enum:
   - "enum CL_Colors\n"
   - "{{\n"
@@ -28,6 +30,8 @@ enum:
   - "}};\n"
 
 enum_entry: "{} = {},\n"
+
+enum_usage: "{}"
 
 if:
   - "if (color[{}] == {})\n"
