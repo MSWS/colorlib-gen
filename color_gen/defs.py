@@ -19,67 +19,7 @@ COLORS = {
     'engine 16':   0x10
     }
 
-TAB = "    "
-
-HEADER = (
-    "//\n" +
-    "// This file was generated with color_gen.py and should not be used outside of colorlib.inc\n" +
-    "//\n" +
-    "// Do not edit! Regenerate this file with color_gen.py\n" +
-    "//\n" +
-    "\n" +
-    "#if defined _colorlib_map_included\n" +
-    TAB + "#endinput\n" +
-    "#endif\n" +
-    "#define _colorlib_map_included\n" +
-    "\n"
-    )
-
-FOOTER = (
-    "\n"
-    )
-
-ENUM_DEF = (
-    "enum CL_Colors\n" +
-    "{{\n" +
-    "{}" +
-    "}};\n"
-    )
-
-ENUM_ENTRY_DEF = TAB + "{} = {},\n"
-
-COLOR_FUNCTION_DEF = (
-    "CL_Colors _CL_ColorMap(char color[16])\n" +
-    "{{\n" +
-    "{}" +
-    "\n" +
-    "{}" +
-    "}}\n"
-    )
-
-IF_DEF = [
-    TAB + "if (color[{}] == {})\n",
-    TAB + "{{\n",
-    TAB + "{}",
-    TAB + "}}\n"
-    ]
-
-ELIF_DEF = [
-    TAB + "else if (color[{}] == {})\n",
-    TAB + "{{\n",
-    TAB + "{}",
-    TAB + "}}\n"
-    ]
-
-ELSE_DEF = [
-    TAB + "else\n",
-    TAB + "{{\n",
-    TAB + "{}",
-    TAB + "}}\n"
-    ]
-
-CHAR_DEF = "\'{}\'"
-
-VIEW_AS_DEF = "view_as<CL_Colors>({})"
-
-RETURN_DEF = TAB + "return {};\n"
+TARGETS = {
+    'python':       'python.py',
+    'sourcepawn':   'sourcepawn.inc'
+}
