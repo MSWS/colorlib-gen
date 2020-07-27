@@ -119,7 +119,7 @@ def to_decisions(group : CharGroup) -> list:
         if isinstance(value, CharGroup):
             t = (group.depth, key, to_decisions(value))
         else:
-            t = (group.depth, key, value)
+            t = (group.depth, key, color_enum_names[value])
 
         tuples.append(t)
 
@@ -228,7 +228,8 @@ def main():
     enums = get_enums()
     decisions = get_decisions()
 
-    env = Environment(loader=PackageLoader('color_gen', 'templates'))
+    env = Environment(loader=PackageLoader('color_gen', 'templates'),
+                      keep_trailing_newline=True)
     template = env.get_template(TARGETS[args.target])
 
     file_name = os.path.splitext(os.path.basename(args.out.name))[0]
