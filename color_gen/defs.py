@@ -18,3 +18,8 @@ COLORS = {
     'engine 15':   0x0F,
     'engine 16':   0x10
     }
+
+TARGETS = {
+    'python':       'python.py',
+    'sourcepawn':   'sourcepawn.inc'
+}

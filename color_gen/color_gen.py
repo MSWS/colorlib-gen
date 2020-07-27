@@ -8,7 +8,7 @@ import yaml
 
 from jinja2 import Environment, PackageLoader
 from char_group import CharGroup
-from defs import DEFAULT_COLOR, COLORS
+from defs import DEFAULT_COLOR, COLORS, TARGETS
 
 colors = []
 color_enum_names = {}
@@ -220,14 +220,13 @@ def main():
     decisions = get_decisions()
 
     env = Environment(loader=PackageLoader('color_gen', 'templates'))
-    template = env.get_template('sourcepawn.inc')
+    template = env.get_template(TARGETS[args.target])
 
     args.out.write(template.render(file_name='colorlib_map',
                                 enum_name='CL_Colors',
                                 function_name='_CL_ColorMap',
                                 colors=enums,
                                 decisions=decisions))
-    
     args.out.close()
 
 if __name__ == '__main__':

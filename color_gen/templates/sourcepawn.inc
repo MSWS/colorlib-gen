@@ -20,7 +20,7 @@ enum {{ enum_name }}
 {
 {%- for (depth, key, value) in decisions recursive %}
     {%- if loop.index == 1 %}
-    if (color[{{ depth }}] == '{{ key }}')
+    if (color[{{ depth }}] == {% if key is string -%} '{{ key }}' {%- else -%} {{ key }} {%- endif %})
     {
         {%- if value is not string -%}
         {{ loop(value)|indent(4) }}
@@ -29,7 +29,7 @@ enum {{ enum_name }}
         {%- endif %}
     }
     {%- else %}
-    else if (color[{{ depth }}] == '{{ key }}')
+    else if (color[{{ depth }}] == {% if key is string -%} '{{ key }}' {%- else -%} {{ key }} {%- endif %})
     {
         {%- if value is not string -%}
         {{ loop(value)|indent(4) }}
