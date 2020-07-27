@@ -1,8 +1,7 @@
 #! /usr/bin/env python3
 
 import argparse
-import re
-import sys
+import os
 
 import yaml
 
@@ -195,6 +194,16 @@ def main():
         choices=['sourcepawn', 'python']
         )
     parser.add_argument(
+        '--enum-name',
+        dest='enum_name',
+        default='CL_Colors'
+        )
+    parser.add_argument(
+        '--function-name',
+        dest='function_name',
+        default='_CL_ColorMap'
+        )
+    parser.add_argument(
         '--config',
         dest='config',
         type=argparse.FileType('r', encoding='UTF-8'),
@@ -222,9 +231,10 @@ def main():
     env = Environment(loader=PackageLoader('color_gen', 'templates'))
     template = env.get_template(TARGETS[args.target])
 
-    args.out.write(template.render(file_name='colorlib_map',
-                                enum_name='CL_Colors',
-                                function_name='_CL_ColorMap',
+    file_name = os.path.splitext(os.path.basename(args.out.name))[0]
+    args.out.write(template.render(file_name=file_name,
+                                enum_name=args.enum_name,
+                                function_name=args.function_name,
                                 colors=enums,
                                 decisions=decisions))
     args.out.close()
