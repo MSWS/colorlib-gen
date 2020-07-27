@@ -24,4 +24,3 @@ class CharGroup:
 
     def __str__(self):
         return '{' + str(self.depth) + ': ' + str(self.children) + '}'
-        
