@@ -18,7 +18,7 @@ class CharGroup:
     def get_max_depth(self) -> int:
         depth = self.depth
         for (_, child) in self.children.items():
-            if isinstance(child, dict):
+            if isinstance(child, CharGroup):
                 max(depth, child.get_max_depth())
 
         return depth
