@@ -12,7 +12,7 @@
 enum {{ enum_name }}
 {
 {%- for (enum, value) in colors %}
-    CL_Color_{{ enum }} = {{ value }},
+    {{ enum_name }}_{{ enum }} = {{ value }},
 {%- endfor %}
 };
 
@@ -25,7 +25,7 @@ enum {{ enum_name }}
         {%- if value is not string -%}
         {{ loop(value)|indent(4) }}
         {%- else %}
-        return CL_Color_{{ value }};
+        return {{ enum_name }}_{{ value }};
         {%- endif %}
     }
     {%- else %}
@@ -34,7 +34,7 @@ enum {{ enum_name }}
         {%- if value is not string -%}
         {{ loop(value)|indent(4) }}
         {%- else %}
-        return CL_Color_{{ value }};
+        return {{ enum_name }}_{{ value }};
         {%- endif %}
     }
     {%- endif %}
