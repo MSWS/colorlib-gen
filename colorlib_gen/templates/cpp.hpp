@@ -16,7 +16,7 @@ enum struct {{ enum_name }} : char
 {%- endfor %}
 };
 
-inline {{ enum_name }} {{ function_name }}(char* color)
+inline {{ enum_name }} {{ function_name }}(const char* color)
 {
 {%- for (depth, key, value) in decisions recursive %}
     {%- if loop.index == 1 %}
