@@ -18,6 +18,7 @@ install:
   - cd deps
   - ../scripts/install-catch2.sh
   - cd ../
+  - pip3 install --user setuptools
   - pip3 install --user -r requirements.txt
   - pip3 install --user .
 
