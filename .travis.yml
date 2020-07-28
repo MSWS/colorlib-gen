@@ -11,6 +11,7 @@ install:
   - mkdir deps
   - cd deps
   - ../scripts/install-catch2.sh
+  - pip install setuptools
 
 # Build steps
 script:
