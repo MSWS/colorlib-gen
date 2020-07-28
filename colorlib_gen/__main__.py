@@ -146,6 +146,7 @@ def get_decisions() -> list:
 
     groups = group_till_unique([c[0] for c in colors])
     groups = skip_redundant_decisions(groups)
+    groups.sort()
 
     return to_decisions(groups)
 
