@@ -20,7 +20,7 @@ class CharGroup:
                 max(depth, child.get_max_depth())
 
     def __repr__(self):
-        return '{' + str(self.depth) + ': ' + str(self.children) + '}'
+        return '(' + str(self.depth) + ': ' + str(self.children) + ')'
 
     def __str__(self):
-        return '{' + str(self.depth) + ': ' + str(self.children) + '}'
+        return '(' + str(self.depth) + ': ' + str(self.children) + ')'
