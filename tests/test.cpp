@@ -18,7 +18,7 @@ TEST_CASE("Colors codes are mapped properly", "[colorlib_gen]")
         REQUIRE(cl_map("command")      == cl_colors::Command);
         REQUIRE(cl_map("team 0")       == cl_colors::Team_0);
         REQUIRE(cl_map("team 1")       == cl_colors::Team_1);
-        REQUIRE(cl_map("team 2")       == cl_colors::Default);
+        REQUIRE(cl_map("team 2")       == cl_colors::Team_2);
         REQUIRE(cl_map("teamcolor")    == cl_colors::Teamcolor);
     }
     SECTION("reference colors")
@@ -53,7 +53,8 @@ TEST_CASE("Colors codes are mapped properly", "[colorlib_gen]")
         REQUIRE(cl_map("engine 9")  == cl_colors::Engine_9);
         REQUIRE(cl_map("engine 10") == cl_colors::Engine_10);
         REQUIRE(cl_map("engine 11") == cl_colors::Engine_11);
-        REQUIRE(cl_map("engine 12") == cl_colors::Engine_13);
+        REQUIRE(cl_map("engine 12") == cl_colors::Engine_12);
+        REQUIRE(cl_map("engine 13") == cl_colors::Engine_13);
         REQUIRE(cl_map("engine 14") == cl_colors::Engine_14);
         REQUIRE(cl_map("engine 15") == cl_colors::Engine_15);
         REQUIRE(cl_map("engine 16") == cl_colors::Engine_16);
