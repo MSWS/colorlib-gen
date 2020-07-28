@@ -40,5 +40,5 @@ enum {{ enum_name }}
     {%- endif %}
 {%- endfor %}
 
-    return view_as<CL_Colors>(0x00);
+    return view_as<{{ enum_name }}>(0x00);
 }
