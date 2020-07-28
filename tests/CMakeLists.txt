@@ -32,3 +32,7 @@ target_include_directories(colorlib_gen_tests PUBLIC
 target_link_libraries(colorlib_gen_tests PUBLIC
     Catch2::Catch2
 )
+
+include(CTest)
+include(Catch)
+catch_discover_tests(colorlib_gen_tests)
