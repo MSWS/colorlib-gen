@@ -1,2 +1,3 @@
+include colorlib_gen/templates/cpp.hpp
 include colorlib_gen/templates/sourcepawn.inc
 include colorlib_gen/templates/python.py

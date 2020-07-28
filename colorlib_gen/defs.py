@@ -20,6 +20,7 @@ COLORS = {
     }
 
 TARGETS = {
+    'cpp':          'cpp.hpp',
     'python':       'python.py',
     'sourcepawn':   'sourcepawn.inc'
 }

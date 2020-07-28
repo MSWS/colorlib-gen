@@ -200,7 +200,7 @@ def main():
         '--target',
         dest='target',
         default='sourcepawn',
-        choices=['sourcepawn', 'python']
+        choices=['cpp', 'sourcepawn', 'python']
         )
     parser.add_argument(
         '--enum-name',
