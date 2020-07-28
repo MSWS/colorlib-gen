@@ -116,6 +116,8 @@ def skip_redundant_decisions(group : dict, depth : int = 0):
     return char_group
 
 def to_decisions(group : CharGroup) -> list:
+    """Converts the char groups into a list of recursive tuples for Jinja2."""
+
     tuples = []
     for (key, value) in group.children.items():
         if isinstance(value, CharGroup):
@@ -129,6 +131,7 @@ def to_decisions(group : CharGroup) -> list:
 
 def get_enums() -> list:
     """Creates the enum values for the color codes of the mapping function."""
+
     enums = []
     for color in colors:
         name = color[0].replace(' ', '_').capitalize()
@@ -140,6 +143,7 @@ def get_enums() -> list:
 
 def get_decisions() -> list:
     """Creates the list of decisions for the mapping function."""
+
     groups = group_till_unique([c[0] for c in colors])
     groups = skip_redundant_decisions(groups)
 
@@ -147,6 +151,7 @@ def get_decisions() -> list:
 
 def parse_config(file, include_ref_colors : bool):
     """Parses ColorGen's the YAML config file."""
+
     cfg = yaml.load(file, Loader=yaml.Loader)
 
     ref_colors = {}
@@ -172,6 +177,8 @@ def parse_config(file, include_ref_colors : bool):
             colors.append((key, value))
 
 def add_default_colors():
+    """Add the default engine colors."""
+
     for (key, value) in COLORS.items():
             colors.append((key, value))
 
@@ -236,10 +243,10 @@ def main():
 
     file_name = os.path.splitext(os.path.basename(args.out.name))[0]
     args.out.write(template.render(file_name=file_name,
-                                enum_name=args.enum_name,
-                                function_name=args.function_name,
-                                colors=enums,
-                                decisions=decisions))
+                                   enum_name=args.enum_name,
+                                   function_name=args.function_name,
+                                   colors=enums,
+                                   decisions=decisions))
     args.out.close()
 
 if __name__ == '__main__':
