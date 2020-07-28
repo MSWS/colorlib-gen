@@ -147,3 +147,10 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# Ignore common testing files
+tests/colorlib_map.hpp
+test.hpp
+test.inc
+test.py
+test2.inc
