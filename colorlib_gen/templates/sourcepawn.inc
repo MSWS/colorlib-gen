@@ -1,7 +1,7 @@
 //
 // This file was generated with color_gen.py and should not be used outside of colorlib.inc
 //
-// Do not edit! Regenerate this file with color_gen.py
+// Do not edit! Regenerate this file with color_gen.py (see https://github.com/c0rp3n/colorlib-gen)
 //
 
 #if defined _{{ file_name }}_included
