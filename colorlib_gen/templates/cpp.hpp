@@ -9,6 +9,18 @@
 
 #pragma once
 
+#ifdef COLORLIB_USE_INLINE
+#define CL_INLINE inline
+#else
+#define CL_INLINE
+#endif
+
+#ifdef COLORLIB_USE_CONSTEXPR
+#define CL_CONSTEXPR constexpr
+#else
+#define CL_CONSTEXPR
+#endif
+
 enum struct {{ enum_name }} : char
 {
 {%- for (enum, value) in colors %}
@@ -16,7 +28,7 @@ enum struct {{ enum_name }} : char
 {%- endfor %}
 };
 
-inline {{ enum_name }} {{ function_name }}(const char* color)
+CL_CONSTEXPR CL_INLINE {{ enum_name }} {{ function_name }}(const char* color)
 {
 {%- for (depth, key, value) in decisions recursive %}
     {%- if loop.index == 1 %}
@@ -42,5 +54,8 @@ inline {{ enum_name }} {{ function_name }}(const char* color)
 
     return static_cast<{{ enum_name }}>(0x00);
 }
+
+#undef CL_INLINE
+#undef CL_CONSTEXPR
 
 #endif // _{{ file_name|upper }}_HPP_
