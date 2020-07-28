@@ -21,7 +21,7 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     set(CMAKE_CXX_FLAGS_RELEASE "/O2 /Ob2")
 endif()
 
-add_executable(colorlib_gen_tests STATIC
+add_executable(colorlib_gen_tests
     test.cpp
 )
 
