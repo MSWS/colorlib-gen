@@ -8,6 +8,11 @@ compiler:
 - gcc
 - clang
 
+addons:
+  apt:
+    packages:
+      - python3-pip
+
 install:
   - mkdir deps
   - cd deps
