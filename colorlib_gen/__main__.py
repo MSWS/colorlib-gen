@@ -6,14 +6,15 @@ import os
 import yaml
 
 from jinja2 import Environment, PackageLoader
-from char_group import CharGroup
-from defs import DEFAULT_COLOR, COLORS, TARGETS
+from colorlib_gen.char_group import CharGroup
+from colorlib_gen.defs import DEFAULT_COLOR, COLORS, TARGETS
 
 colors = []
 color_enum_names = {}
 
 def get_hex(i : int, n : int = 2) -> str:
     """Returns a hex representation of a char."""
+
     return '0x' + '{:0{}x}'.format(i, n).upper()
 
 def group_till_unique(in_group : list, i : int = 0) -> dict:
@@ -64,6 +65,7 @@ def group_by_char_at(colors : list, i : int = 0) -> dict:
 
 def skip_redundant_decisions(group : dict, depth : int = 0):
     """Optimisation step which skips redundant decisions."""
+
     # FROM:
     # 't':
     # {
@@ -228,7 +230,7 @@ def main():
     enums = get_enums()
     decisions = get_decisions()
 
-    env = Environment(loader=PackageLoader('color_gen', 'templates'),
+    env = Environment(loader=PackageLoader('colorlib_gen', 'templates'),
                       keep_trailing_newline=True)
     template = env.get_template(TARGETS[args.target])
 

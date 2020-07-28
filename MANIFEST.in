@@ -1,0 +1,2 @@
+include colorlib_gen/templates/sourcepawn.inc
+include colorlib_gen/templates/python.py
