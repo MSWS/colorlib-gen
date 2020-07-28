@@ -23,7 +23,7 @@ TEST_CASE("Colors codes are mapped properly", "[colorlib_gen]")
     }
     SECTION("reference colors")
     {
-        REQUIRE(cl_map("red") == cl_colors::Red);
+        REQUIRE(cl_map("red")        == cl_colors::Red);
         REQUIRE(cl_map("lightred")   == cl_colors::Lightred);
         REQUIRE(cl_map("darkred")    == cl_colors::Darkred);
         REQUIRE(cl_map("bluegrey")   == cl_colors::Bluegrey);
