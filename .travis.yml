@@ -1,0 +1,24 @@
+os: linux
+dist: bionic
+language: cpp
+
+# Compiler selection
+compiler:
+- gcc
+- clang
+
+install:
+  - mkdir deps
+  - cd deps
+  - ../scripts/install-catch2.sh
+
+# Build steps
+script:
+  - cd ${TRAVIS_BUILD_DIR}
+  - py ./setup.py install
+  - colorlib_gen -re --target "cpp" --enum-name "cl_colors" --function-name "cl_map" --config "./example_conf.yaml" "./tests/colorlib_map.hpp"
+  - cd ${TRAVIS_BUILD_DIR}/tests
+  - mkdir build
+  - cd build
+  - cmake .. && make
+  - ctest
