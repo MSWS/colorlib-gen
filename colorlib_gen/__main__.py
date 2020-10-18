@@ -11,6 +11,7 @@ from colorlib_gen.defs import DEFAULT_COLOR, COLORS, TARGETS
 
 colors = []
 color_enum_names = {}
+terminator_char = 0
 
 def get_hex(i : int, n : int = 2) -> str:
     """Returns a hex representation of a char."""
@@ -52,7 +53,7 @@ def group_by_char_at(colors : list, i : int = 0) -> dict:
     for color in colors:
         if len(color) == i:
             # index greater than length of string so use null terminator
-            groups[0] = color
+            groups[terminator_char] = color
         elif color[i] in groups:
             if isinstance(groups[color[i]], list):
                 groups[color[i]].append(color)
@@ -214,6 +215,11 @@ def main():
         default='_CL_ColorMap'
         )
     parser.add_argument(
+        '--terminator',
+        dest='terminator_char',
+        default=0
+    )
+    parser.add_argument(
         '--config',
         dest='config',
         type=argparse.FileType('r', encoding='UTF-8'),
@@ -234,6 +240,9 @@ def main():
     
     if args.include_engine_colors or args.config == None:
         add_default_colors()
+
+    global terminator_char 
+    terminator_char = args.terminator_char
 
     enums = get_enums()
     decisions = get_decisions()
