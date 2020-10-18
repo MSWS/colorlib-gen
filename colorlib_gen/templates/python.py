@@ -5,8 +5,8 @@ class {{ enum_name }}(Enum):
     {{ enum }} = '{{ value }}'
 {%- endfor %}
 
-def {{ function_name }}(color : str) -> str:
-{%- for (depth, key, value) in decisions recursive %}
+def {{ function_name }}(color : str) -> tuple:
+{%- for (depth, key, length, value) in decisions recursive %}
     {%- if loop.index == 1 %}
     {%- if key is string %}
     if color[{{ depth }}] == '{{ key }}':
@@ -16,7 +16,7 @@ def {{ function_name }}(color : str) -> str:
         {%- if value is not string -%}
         {{ loop(value)|indent(4) }}
         {%- else %}
-        return {{ enum_name }}.{{ value }}
+        return ({{ enum_name }}.{{ value }}, {{ length }})
         {%- endif %}
     {%- else %}
     {%- if key is string %}
@@ -27,9 +27,9 @@ def {{ function_name }}(color : str) -> str:
         {%- if value is not string -%}
         {{ loop(value)|indent(4) }}
         {%- else %}
-        return {{ enum_name }}.{{ value }}
+        return ({{ enum_name }}.{{ value }}, {{ length }})
         {%- endif %}
     {%- endif %}
 {%- endfor %}
 
-    return ''
+    return ('', 0)

@@ -9,6 +9,8 @@
 
 #pragma once
 
+#include <utility>
+
 #ifdef COLORLIB_USE_INLINE
 #define CL_INLINE inline
 #else
@@ -28,16 +30,16 @@ enum struct {{ enum_name }} : char
 {%- endfor %}
 };
 
-CL_CONSTEXPR CL_INLINE {{ enum_name }} {{ function_name }}(const char* color)
+CL_CONSTEXPR CL_INLINE std::tuple<{{ enum_name }}, int> {{ function_name }}(const char* color)
 {
-{%- for (depth, key, value) in decisions recursive %}
+{%- for (depth, key, length, value) in decisions recursive %}
     {%- if loop.index == 1 %}
     if (color[{{ depth }}] == {% if key is string -%} '{{ key }}' {%- else -%} {{ key }} {%- endif %})
     {
         {%- if value is not string -%}
         {{ loop(value)|indent(4) }}
         {%- else %}
-        return {{ enum_name }}::{{ value }};
+        return std::make_tuple({{ enum_name }}::{{ value }}, {{ length }});
         {%- endif %}
     }
     {%- else %}
@@ -46,13 +48,13 @@ CL_CONSTEXPR CL_INLINE {{ enum_name }} {{ function_name }}(const char* color)
         {%- if value is not string -%}
         {{ loop(value)|indent(4) }}
         {%- else %}
-        return {{ enum_name }}::{{ value }};
+        return std::make_tuple({{ enum_name }}::{{ value }}, {{ length }});
         {%- endif %}
     }
     {%- endif %}
 {%- endfor %}
 
-    return static_cast<{{ enum_name }}>(0x00);
+    return std::make_tuple(static_cast<{{ enum_name }}>(0x00), 0);
 }
 
 #undef CL_INLINE

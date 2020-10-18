@@ -16,15 +16,16 @@ enum {{ enum_name }}
 {%- endfor %}
 };
 
-{{ enum_name }} {{ function_name }}(char color[16])
+{{ enum_name }} {{ function_name }}(const char[] color, int& length)
 {
-{%- for (depth, key, value) in decisions recursive %}
+{%- for (depth, key, length, value) in decisions recursive %}
     {%- if loop.index == 1 %}
     if (color[{{ depth }}] == {% if key is string -%} '{{ key }}' {%- else -%} {{ key }} {%- endif %})
     {
         {%- if value is not string -%}
         {{ loop(value)|indent(4) }}
         {%- else %}
+        length = {{ length }};
         return {{ enum_name }}_{{ value }};
         {%- endif %}
     }
@@ -34,6 +35,7 @@ enum {{ enum_name }}
         {%- if value is not string -%}
         {{ loop(value)|indent(4) }}
         {%- else %}
+        length = {{ length }};
         return {{ enum_name }}_{{ value }};
         {%- endif %}
     }

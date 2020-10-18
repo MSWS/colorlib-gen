@@ -122,9 +122,10 @@ def to_decisions(group : CharGroup) -> list:
     tuples = []
     for (key, value) in group.children.items():
         if isinstance(value, CharGroup):
-            t = (group.depth, key, to_decisions(value))
+            t = (group.depth, key, 0, to_decisions(value))
         else:
-            t = (group.depth, key, color_enum_names[value])
+            length = len(value) + 1 # length of color code + terminator
+            t = (group.depth, key, length, color_enum_names[value])
 
         tuples.append(t)
 

@@ -7,57 +7,57 @@ TEST_CASE("Colors codes are mapped properly", "[colorlib_gen]")
 {
     SECTION("standard")
     {
-        REQUIRE(cl_map("default")      == cl_colors::Default);
-        REQUIRE(cl_map("prefix")       == cl_colors::Prefix);
-        REQUIRE(cl_map("reply2cmd")    == cl_colors::Reply2cmd);
-        REQUIRE(cl_map("showactivity") == cl_colors::Showactivity);
-        REQUIRE(cl_map("error")        == cl_colors::Error);
-        REQUIRE(cl_map("highlight")    == cl_colors::Highlight);
-        REQUIRE(cl_map("player")       == cl_colors::Player);
-        REQUIRE(cl_map("settings")     == cl_colors::Settings);
-        REQUIRE(cl_map("command")      == cl_colors::Command);
-        REQUIRE(cl_map("team 0")       == cl_colors::Team_0);
-        REQUIRE(cl_map("team 1")       == cl_colors::Team_1);
-        REQUIRE(cl_map("team 2")       == cl_colors::Team_2);
-        REQUIRE(cl_map("teamcolor")    == cl_colors::Teamcolor);
+        REQUIRE(cl_map("default")      == std::make_tuple(cl_colors::Default,      8));
+        REQUIRE(cl_map("prefix")       == std::make_tuple(cl_colors::Prefix,       7));
+        REQUIRE(cl_map("reply2cmd")    == std::make_tuple(cl_colors::Reply2cmd,    10));
+        REQUIRE(cl_map("showactivity") == std::make_tuple(cl_colors::Showactivity, 13));
+        REQUIRE(cl_map("error")        == std::make_tuple(cl_colors::Error,        6));
+        REQUIRE(cl_map("highlight")    == std::make_tuple(cl_colors::Highlight,    10));
+        REQUIRE(cl_map("player")       == std::make_tuple(cl_colors::Player,       7));
+        REQUIRE(cl_map("settings")     == std::make_tuple(cl_colors::Settings,     9));
+        REQUIRE(cl_map("command")      == std::make_tuple(cl_colors::Command,      8));
+        REQUIRE(cl_map("team 0")       == std::make_tuple(cl_colors::Team_0,       7));
+        REQUIRE(cl_map("team 1")       == std::make_tuple(cl_colors::Team_1,       7));
+        REQUIRE(cl_map("team 2")       == std::make_tuple(cl_colors::Team_2,       7));
+        REQUIRE(cl_map("teamcolor")    == std::make_tuple(cl_colors::Teamcolor,    10));
     }
     SECTION("reference colors")
     {
-        REQUIRE(cl_map("red")        == cl_colors::Red);
-        REQUIRE(cl_map("lightred")   == cl_colors::Lightred);
-        REQUIRE(cl_map("darkred")    == cl_colors::Darkred);
-        REQUIRE(cl_map("bluegrey")   == cl_colors::Bluegrey);
-        REQUIRE(cl_map("blue")       == cl_colors::Blue);
-        REQUIRE(cl_map("darkblue")   == cl_colors::Darkblue);
-        REQUIRE(cl_map("purple")     == cl_colors::Purple);
-        REQUIRE(cl_map("orchid")     == cl_colors::Orchid);
-        REQUIRE(cl_map("orange")     == cl_colors::Orange);
-        REQUIRE(cl_map("yellow")     == cl_colors::Yellow);
-        REQUIRE(cl_map("gold")       == cl_colors::Gold);
-        REQUIRE(cl_map("lightgreen") == cl_colors::Lightgreen);
-        REQUIRE(cl_map("green")      == cl_colors::Green);
-        REQUIRE(cl_map("lime")       == cl_colors::Lime);
-        REQUIRE(cl_map("grey")       == cl_colors::Grey);
-        REQUIRE(cl_map("grey2")      == cl_colors::Grey2);
+        REQUIRE(cl_map("red")        == std::make_tuple(cl_colors::Red,        4));
+        REQUIRE(cl_map("lightred")   == std::make_tuple(cl_colors::Lightred,   9));
+        REQUIRE(cl_map("darkred")    == std::make_tuple(cl_colors::Darkred,    8));
+        REQUIRE(cl_map("bluegrey")   == std::make_tuple(cl_colors::Bluegrey,   9));
+        REQUIRE(cl_map("blue")       == std::make_tuple(cl_colors::Blue,       5));
+        REQUIRE(cl_map("darkblue")   == std::make_tuple(cl_colors::Darkblue,   9));
+        REQUIRE(cl_map("purple")     == std::make_tuple(cl_colors::Purple,     7));
+        REQUIRE(cl_map("orchid")     == std::make_tuple(cl_colors::Orchid,     7));
+        REQUIRE(cl_map("orange")     == std::make_tuple(cl_colors::Orange,     7));
+        REQUIRE(cl_map("yellow")     == std::make_tuple(cl_colors::Yellow,     7));
+        REQUIRE(cl_map("gold")       == std::make_tuple(cl_colors::Gold,       5));
+        REQUIRE(cl_map("lightgreen") == std::make_tuple(cl_colors::Lightgreen, 11));
+        REQUIRE(cl_map("green")      == std::make_tuple(cl_colors::Green,      6));
+        REQUIRE(cl_map("lime")       == std::make_tuple(cl_colors::Lime,       5));
+        REQUIRE(cl_map("grey")       == std::make_tuple(cl_colors::Grey,       5));
+        REQUIRE(cl_map("grey2")      == std::make_tuple(cl_colors::Grey2,      6));
     }
     SECTION("engine colors")
     {
-        REQUIRE(cl_map("engine 1")  == cl_colors::Engine_1);
-        REQUIRE(cl_map("engine 2")  == cl_colors::Engine_2);
-        REQUIRE(cl_map("engine 3")  == cl_colors::Engine_3);
-        REQUIRE(cl_map("engine 4")  == cl_colors::Engine_4);
-        REQUIRE(cl_map("engine 5")  == cl_colors::Engine_5);
-        REQUIRE(cl_map("engine 6")  == cl_colors::Engine_6);
-        REQUIRE(cl_map("engine 7")  == cl_colors::Engine_7);
-        REQUIRE(cl_map("engine 8")  == cl_colors::Engine_8);
-        REQUIRE(cl_map("engine 9")  == cl_colors::Engine_9);
-        REQUIRE(cl_map("engine 10") == cl_colors::Engine_10);
-        REQUIRE(cl_map("engine 11") == cl_colors::Engine_11);
-        REQUIRE(cl_map("engine 12") == cl_colors::Engine_12);
-        REQUIRE(cl_map("engine 13") == cl_colors::Engine_13);
-        REQUIRE(cl_map("engine 14") == cl_colors::Engine_14);
-        REQUIRE(cl_map("engine 15") == cl_colors::Engine_15);
-        REQUIRE(cl_map("engine 16") == cl_colors::Engine_16);
+        REQUIRE(cl_map("engine 1")  == std::make_tuple(cl_colors::Engine_1,  9));
+        REQUIRE(cl_map("engine 2")  == std::make_tuple(cl_colors::Engine_2,  9));
+        REQUIRE(cl_map("engine 3")  == std::make_tuple(cl_colors::Engine_3,  9));
+        REQUIRE(cl_map("engine 4")  == std::make_tuple(cl_colors::Engine_4,  9));
+        REQUIRE(cl_map("engine 5")  == std::make_tuple(cl_colors::Engine_5,  9));
+        REQUIRE(cl_map("engine 6")  == std::make_tuple(cl_colors::Engine_6,  9));
+        REQUIRE(cl_map("engine 7")  == std::make_tuple(cl_colors::Engine_7,  9));
+        REQUIRE(cl_map("engine 8")  == std::make_tuple(cl_colors::Engine_8,  9));
+        REQUIRE(cl_map("engine 9")  == std::make_tuple(cl_colors::Engine_9,  9));
+        REQUIRE(cl_map("engine 10") == std::make_tuple(cl_colors::Engine_10, 10));
+        REQUIRE(cl_map("engine 11") == std::make_tuple(cl_colors::Engine_11, 10));
+        REQUIRE(cl_map("engine 12") == std::make_tuple(cl_colors::Engine_12, 10));
+        REQUIRE(cl_map("engine 13") == std::make_tuple(cl_colors::Engine_13, 10));
+        REQUIRE(cl_map("engine 14") == std::make_tuple(cl_colors::Engine_14, 10));
+        REQUIRE(cl_map("engine 15") == std::make_tuple(cl_colors::Engine_15, 10));
+        REQUIRE(cl_map("engine 16") == std::make_tuple(cl_colors::Engine_16, 10));
     }
 }
 
@@ -70,7 +70,7 @@ TEST_CASE("Bad color codes return null terminator", "[colorlib_gen]")
     // undefined, it is up to the user to type them correctly.
 
     constexpr auto null = static_cast<cl_colors>(0);
-    REQUIRE(cl_map("blueblue")    == null);
-    REQUIRE(cl_map("Red")         == null);
-    REQUIRE(cl_map("Hello World") == null);
+    REQUIRE(cl_map("blueblue")    == std::make_tuple(null, 0));
+    REQUIRE(cl_map("Red")         == std::make_tuple(null, 0));
+    REQUIRE(cl_map("Hello World") == std::make_tuple(null, 0));
 }
