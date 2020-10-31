@@ -1,6 +1,6 @@
 DEFAULT_COLOR = ('default', 0x01)
 
-COLORS = {
+ENGINE_COLORS = {
     'engine 1':    0x01,
     'engine 2':    0x02,
     'engine 3':    0x03,

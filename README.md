@@ -28,7 +28,7 @@ function for your colors.
 #### Example
 ```bash
 # for more info use ./color_gen.py -h
-colorlib_gen -re --target "sourcepawn" --config "./example_conf.yaml" "./colorlib_map.inc"
+colorlib_gen -re --target "sourcepawn" --config "./example_conf.yaml" colorlib_map.inc
 ```
 
 #### Example GitHub workflow for SourcePawn
@@ -53,7 +53,7 @@ __Note:__ _This must executed before the plugins will be compiled._
     pip install -r ./requirements.txt
     python3 ./setup.py install
 - name: Generate colorlib_map.inc
-  run: colorlib_gen -re --config "./example_conf.yaml" "../include/colorlib_map.inc"
+  run: colorlib_gen -re --target "sourcepawn" --config "./example_conf.yaml" colorlib_map.inc
 ```
 
 ## Download
