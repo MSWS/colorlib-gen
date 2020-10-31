@@ -182,8 +182,8 @@ def parse_config(file, include_ref_colors : bool):
         else:
             if value in ref_colors:
                 COLORS.append((key, ref_colors[value]))
-            elif value in COLORS:
-                COLORS.append((key, COLORS[value]))
+            elif value in ENGINE_COLORS:
+                COLORS.append((key, ENGINE_COLORS[value]))
     
     if include_ref_colors:
         for (key, value) in ref_colors.items():
