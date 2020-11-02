@@ -167,6 +167,10 @@ def parse_config(file, include_ref_colors : bool):
         global FUNCTION_NAME
         FUNCTION_NAME = cfg['function_name']
 
+    if 'terminator' in cfg:
+        global TERMINATOR_CHAR
+        TERMINATOR_CHAR = cfg['terminator']
+
     ref_colors = {}
     if 'ref_colors' in cfg:
         for (key, value) in cfg['ref_colors'].items():
