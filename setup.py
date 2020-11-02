@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="colorlib_gen",
-    version="1.2.1",
+    version="1.2.2",
     author="Oliver \"c0rp3n\" Hitchcock",
     author_email="",
     description="Generates a color map for ColorLib.",
