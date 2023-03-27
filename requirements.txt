@@ -1,3 +1,4 @@
 setuptools
 pyyaml
 Jinja2
+markupsafe==2.0.1
